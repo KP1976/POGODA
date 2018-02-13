@@ -1,0 +1,101 @@
+.weather-container {
+  align-items: center;
+  background-color: $blue;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 30rem;
+  padding: $container-padding;
+  transition: opacity .3s ease-in;
+}
+
+.weather-logo {
+  margin-bottom: 2rem;
+}
+
+.weather-location-title, .weather-data-title {
+  color: $black;
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+
+.weather-location,
+.weather-desc,
+.weather-temp {
+  color: $white;
+  font-weight: 100;
+  line-height: 1;
+  text-align: center;
+}
+
+.weather-location {
+  font-size: $title-font-size;
+  margin-bottom: 2rem;
+}
+
+.weather-desc {
+  color: $black;
+}
+
+.weather-desc, .weather-temp {
+  font-size: $subtitle-font-size;
+  margin-bottom: 1rem;
+}
+
+.weather-icon {
+  margin-bottom: 1rem;
+}
+
+.weather-list {
+  border-radius: $radius;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.weather-list-item {
+  border-bottom: 1px solid $white;
+  color: $black;
+  display: flex;
+  font-size: $txt-font-size;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 1.5rem 0;
+  width: 100%;
+}
+
+.weather-list-item-title {
+  color: $black;
+  font-size: $txt-font-size;
+  font-weight: normal;
+  margin-right: 2rem;
+}
+
+.weather-list-item span {
+  color: $white;
+  font-size: $txt-font-size;
+}
+
+.weather-list-item:last-child {
+  border-bottom: none;
+}
+
+.change-location {
+  background-color: $white;
+  border: none;
+  border-radius: $radius;
+  color: $black;
+  cursor: pointer;
+  font-size: $txt-font-size;
+  outline: none;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  @media screen and (min-width: 920px) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 40rem;
+  }
+}

@@ -1,0 +1,84 @@
+.modal {
+  align-items: center;
+  background-color: $yellow;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: $radius;
+  display: flex;
+  flex-direction: column;
+  left: 50%;
+  opacity: 0;
+  position: fixed;
+  top: 2rem;
+  transform: translate(-50%, -10%);
+  transition: opacity .5s ease-in, transform .5s ease-in;
+  visibility: hidden;
+  width: 60rem;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  width: 100%;
+}
+
+.modal-title, .close {
+  font-size: $subtitle-font-size;
+  font-weight: 100;
+}
+
+.modal-main {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  width: 100%;
+}
+
+.modal-city, .modal-state {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-city {
+  margin-bottom: 1rem;
+}
+
+.modal-label {
+  color: $black;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.modal-input {
+  background-color: $white;
+  border: 1px dotted rgba(0, 0, 0, .3);
+  border-radius: $radius;
+  font-size: $txt-font-size;
+  outline: none;
+  padding: 1rem 2rem;
+}
+
+.btn-submit {
+  background-color: $blue;
+  border: none;
+  border-radius: $radius;
+  cursor: pointer;
+  font-size: $txt-font-size;
+  height: 4rem;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  outline: none;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+}
+
+.close {
+  cursor: pointer;
+  display: block;
+}
+
+.on {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  visibility: visible;
+}
