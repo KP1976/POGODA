@@ -136,7 +136,6 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-bottom: 2rem;
   width: 100%;
 }
 
@@ -215,7 +214,17 @@ body {
   transition: opacity .5s ease-in, transform .5s ease-in;
   transition: opacity .5s ease-in, transform .5s ease-in, -webkit-transform .5s ease-in;
   visibility: hidden;
-  width: 60rem;
+  width: 100%;
+}
+@media screen and (min-width: 640px) {
+  .modal {
+    width: 90%;
+  }
+}
+@media screen and (min-width: 920px) {
+  .modal {
+    max-width: 60rem;
+  }
 }
 
 .modal-header {
