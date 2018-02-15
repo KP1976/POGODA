@@ -11,7 +11,11 @@ function vars() {
     pressure: document.querySelector('.pressure'),
     visibility: document.querySelector('.visibility'),
     locationBtn: document.querySelector('.change-location'),
-    modal: document.querySelector('.modal')
+    modal: document.querySelector('.modal'),
+    modalCity: document.querySelector('.city'),
+    countryState: document.querySelector('.country-state'),
+    btnSubmit: document.querySelector('.btn-submit'),
+    close: document.querySelector('.close')
   });
 }
 

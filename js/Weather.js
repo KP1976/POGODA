@@ -2,25 +2,25 @@ const Weather = (_=>{
   let config = {};
 
   class WeatherClass {
-    constructor(city, state) {
+    constructor(city, countryState) {
       this.apiKey = '74303a711241a2ef';
       this.city = city;
-      this.state = state;
+      this.countryState = countryState;
     }
   
     // Pobranie pogody z API
     getAPIData() {
-      const data = fetch(`https://api.wunderground.com/api/${this.apiKey}/conditions/q/${this.state}/${this.city}.json`)
+      const data = fetch(`https://api.wunderground.com/api/${this.apiKey}/conditions/q/${this.countryState}/${this.city}.json`)
       .then(res => res.json());
 
       return data;
     }
   
-    // // Zmiana lokalizacji pogody
-    // changeLocation(city, state) {
-    //   this.city = city;
-    //   this.state = state;
-    // }
+    // Zmiana lokalizacji pogody
+    changeLocation(city, countryState) {
+      this.city = city;
+      this.countryState = countryState;
+    }
   }
 
   return {

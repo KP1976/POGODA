@@ -228,9 +228,9 @@ body {
 }
 
 .modal-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr -webkit-min-content;
+  grid-template-columns: 1fr min-content;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -241,6 +241,10 @@ body {
 .modal-title, .close {
   font-size: var(--subtitle-font-size);
   font-weight: 100;
+}
+
+.info {
+  font-weight: normal;
 }
 
 .modal-main {

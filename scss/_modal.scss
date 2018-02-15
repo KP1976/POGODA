@@ -22,7 +22,8 @@
 }
 
 .modal-header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr min-content;
   justify-content: space-between;
   padding: 1rem 2rem;
   width: 100%;
@@ -31,6 +32,10 @@
 .modal-title, .close {
   font-size: $subtitle-font-size;
   font-weight: 100;
+}
+
+.info {
+  font-weight: normal;
 }
 
 .modal-main {
