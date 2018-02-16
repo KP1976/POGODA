@@ -11,6 +11,7 @@ function vars() {
     pressure: document.querySelector('.pressure'),
     visibility: document.querySelector('.visibility'),
     locationBtn: document.querySelector('.change-location'),
+    modalBackground: document.querySelector('.modal-background'),
     modal: document.querySelector('.modal'),
     modalCity: document.querySelector('.city'),
     countryState: document.querySelector('.country-state'),

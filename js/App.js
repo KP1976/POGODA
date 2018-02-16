@@ -1,8 +1,15 @@
 const App = (_=> {
   let vars = {};
 
+  // tworzenie obiektu na podstawie klasy z pliku LocalStorage.js
+  const storage = new Storage(); 
+  
+  // Pobieranie 
+  const city = storage.getLocationData().city;
+  const countryState = storage.getLocationData().countryState;
+
   // tworzenie obiektu na podstawie klasy z pliku Weather.js
-  const weather = new Weather.WeatherClass('Warsaw', 'Poland'); 
+  const weather = new Weather.WeatherClass(city, countryState); 
 
   // Funkcja obługująca dane z API pogody
   function getWeather() {
@@ -16,22 +23,14 @@ const App = (_=> {
       const desc = data.current_observation.weather;
       const humidity = data.current_observation.relative_humidity;
       const dewpoint = data.current_observation.dewpoint_c;
-      const temp = data.current_observation.feelslike_c;
+      const temp = data.current_observation.temp_c;
       const wind_dir = data.current_observation.wind_dir;
       const wind = data.current_observation.wind_kph;
       const pressure = data.current_observation.pressure_mb;
-
-      // if(data.current_observation.visibility_km === 'N/A') {
-      //   const visibility = 'Brak danych';
-      // } else {
-      //   const visibility = Math.round((data.current_observation.visibility_km));
-      // }
-
       const visibility = (data.current_observation.visibility_km === 'N/A') ? 
-      '(Brak danych)' : 
-      Math.round((data.current_observation.visibility_km));
+      '(Brak danych)' : Math.round((data.current_observation.visibility_km));
 
-      // console.log(data.current_observation);
+      console.log(data.current_observation);
       let windDir = '', weatherDesc = '';
   
       // Zamiana angielskich kierunków wiatru na polskie
@@ -44,6 +43,9 @@ const App = (_=> {
           break;
         case 'NNW': 
           windDir = 'Płn-Płn-Zach';
+          break;
+        case 'NNE': 
+          windDir = 'Płn-Płn-Wsch';
           break;
         case 'NWW': 
           windDir = 'Płn-Zach-Zach';
@@ -156,7 +158,7 @@ const App = (_=> {
       vars.humidity.textContent = `${humidity}`;
       vars.dewpoint.textContent = `${dewpoint}°C`;
       vars.temp.textContent = `${temp}°C`;
-      vars.wind.textContent = `${windDir}\xa0o prędkości ${wind}\xa0km/h`;
+      vars.wind.textContent = `${windDir} o\xa0prędkości ${wind}\xa0km/h`;
       vars.pressure.textContent = `${pressure} hPa`;
       vars.visibility.textContent = `${visibility} km`;
     })
@@ -164,20 +166,22 @@ const App = (_=> {
   }
 
   function openModal() {
+    vars.modalBackground.style.display = 'block';
     vars.modal.classList.add('on');
   }
 
   function closeModal() {
+    vars.modalBackground.style.display = 'none';
     vars.modal.classList.remove('on');
   }
 
-  function changeLocation(e) {
+  function chooseLocation() {
     let cityValue = vars.modalCity.value;
     let countryStateValue = vars.countryState.value;
 
-    console.log(cityValue, countryStateValue);
-
+    // Uruchomienie funkcji zmiany lokalizacji, ustawienie nowego miasta i stanu lub kraju w Local Storage, wywołanie funkcji pobrania danych pogodowych z API i zamknięcie modala
     weather.changeLocation(cityValue, countryStateValue);
+    storage.setLocationData(cityValue, countryStateValue);
     getWeather();
     closeModal();
 
@@ -186,14 +190,17 @@ const App = (_=> {
     vars.countryState.value = '';
   }
 
+  function eventListeners() {
+    vars.locationBtn.addEventListener('click', openModal);
+    vars.btnSubmit.addEventListener('click', chooseLocation);
+    vars.close.addEventListener('click', closeModal);
+  }
+
+  // Funkcja inicjalizująca
   function init(_vars) {
     vars = _vars;
     getWeather();
-    vars.locationBtn.addEventListener('click', openModal);
-    vars.btnSubmit.addEventListener('click', changeLocation);
-
-    // Zamknięcie modalu po naciśnięciu na krzyżyk 
-    vars.close.addEventListener('click', closeModal);
+    eventListeners();
   }
 
   return {

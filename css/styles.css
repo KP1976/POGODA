@@ -43,7 +43,6 @@ body {
           justify-content: center;
   max-width: 100rem;
   margin: 0 auto;
-  min-height: 100vh;
   padding: 3rem;
 }
 @media screen and (min-width: 920px) {
@@ -187,6 +186,17 @@ body {
     justify-self: center;
     width: 40rem;
   }
+}
+
+.modal-background {
+  background-color: gray;
+  display: none;
+  height: 100vh;
+  left: 0;
+  opacity: 0.8;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .modal {
