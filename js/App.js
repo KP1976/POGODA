@@ -1,6 +1,4 @@
 const App = (_=> {
-  let vars = {};
-
   // tworzenie obiektu na podstawie klasy z pliku LocalStorage.js
   const storage = new Storage(); 
   
@@ -9,7 +7,7 @@ const App = (_=> {
   const countryState = storage.getLocationData().countryState;
 
   // tworzenie obiektu na podstawie klasy z pliku Weather.js
-  const weather = new Weather.WeatherClass(city, countryState); 
+  const weather = new Weather(city, countryState); 
 
   // Funkcja obługująca dane z API pogody
   function getWeather() {
@@ -30,7 +28,7 @@ const App = (_=> {
       const visibility = (data.current_observation.visibility_km === 'N/A') ? 
       '(Brak danych)' : Math.round((data.current_observation.visibility_km));
 
-      console.log(data.current_observation);
+      // console.log(data.current_observation);
       let windDir = '', weatherDesc = '';
   
       // Zamiana angielskich kierunków wiatru na polskie
@@ -162,7 +160,10 @@ const App = (_=> {
       vars.pressure.textContent = `${pressure} hPa`;
       vars.visibility.textContent = `${visibility} km`;
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      alert('Nieprawidłowo wpisałeś albo brak takich nazw w bazie danych.');
+      console.log(err);
+    });
   }
 
   function openModal() {

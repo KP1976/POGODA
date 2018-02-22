@@ -1,23 +1,21 @@
-function vars() {
+document.addEventListener('DOMContentLoaded', function() {
   App.init({
-    logo: document.querySelector('.weather-logo'),
-    icon: document.querySelector('.weather-icon'),
-    city: document.querySelector('.weather-location'),
-    desc: document.querySelector('.weather-desc'),
-    humidity: document.querySelector('.humidity'),
-    dewpoint: document.querySelector('.dewpoint'),
-    temp: document.querySelector('.feels-like'),
-    wind: document.querySelector('.wind'),
-    pressure: document.querySelector('.pressure'),
-    visibility: document.querySelector('.visibility'),
-    locationBtn: document.querySelector('.change-location'),
-    modalBackground: document.querySelector('.modal-background'),
-    modal: document.querySelector('.modal'),
-    modalCity: document.querySelector('.city'),
-    countryState: document.querySelector('.country-state'),
-    btnSubmit: document.querySelector('.btn-submit'),
-    close: document.querySelector('.close')
+    logo: this.querySelector('.weather-logo'),
+    icon: this.querySelector('.weather-icon'),
+    city: this.querySelector('.weather-location'),
+    desc: this.querySelector('.weather-desc'),
+    humidity: this.querySelector('.humidity'),
+    dewpoint: this.querySelector('.dewpoint'),
+    temp: this.querySelector('.feels-like'),
+    wind: this.querySelector('.wind'),
+    pressure: this.querySelector('.pressure'),
+    visibility: this.querySelector('.visibility'),
+    locationBtn: this.querySelector('.change-location'),
+    modalBackground: this.querySelector('.modal-background'),
+    modal: this.querySelector('.modal'),
+    modalCity: this.querySelector('.city'),
+    countryState: this.querySelector('.country-state'),
+    btnSubmit: this.querySelector('.btn-submit'),
+    close: this.querySelector('.close')
   });
-}
-
-document.addEventListener('DOMContentLoaded', vars);
+});
